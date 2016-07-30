@@ -137,6 +137,45 @@ namespace Brainchild.H2O
             return (result);
         }
 
+        public ImportFilesV3 ImportFiles(string path, string[] excludeFields = null)
+        {
+            var result = new ImportFilesV3();
+
+            var request = new RestRequest("3/ImportFiles", Method.POST);
+            request.AddParameter("path", path);
+            ParseExcludeFields(excludeFields, request);
+            var response = client.Execute(request);
+            var responseObject = DynamicJson.Parse(response.Content);
+
+            result.Path = responseObject.path;
+            var files = new List<string>();
+            foreach(var x in responseObject.files)
+            {
+                files.Add(x);
+            }
+            var destination_frames = new List<string>();
+            foreach (var x in responseObject.destination_frames)
+            {
+                destination_frames.Add(x);
+            }
+            var fails = new List<string>();
+            foreach (var x in responseObject.fails)
+            {
+                fails.Add(x);
+            }
+            var dels = new List<string>();
+            foreach (var x in responseObject.dels)
+            {
+                dels.Add(x);
+            }
+            result.Files = files.ToArray();
+            result.DestinationFrames = destination_frames.ToArray();
+            result.Fails = fails.ToArray();
+            result.Dels = dels.ToArray();
+
+            return result;
+        }
+
         private static void ParseExcludeFields(string[] excludeFields, RestRequest request)
         {
             if (excludeFields != null)
