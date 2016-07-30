@@ -45,8 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CloudV3.cs" />
     <Compile Include="DynamicJson.cs" />
     <Compile Include="H2O3Client.cs" />
+    <Compile Include="NodeV3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

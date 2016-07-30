@@ -11,7 +11,7 @@ namespace h2o3_client_test
         public void CloudMethod()
         {
             var client = new H2O3Client();
-            client.Cloud(false, new string[] {"version"});
+            var cloud = client.Cloud();
         }
     }
 }
