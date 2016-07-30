@@ -33,6 +33,8 @@ namespace h2o3_example
             {
                 Console.WriteLine("{0}", loaded);
             }
+
+            client.Shutdown();
         }
     }
 }

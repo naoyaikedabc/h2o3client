@@ -176,6 +176,13 @@ namespace Brainchild.H2O
             return result;
         }
 
+        public void Shutdown()
+        {
+            var request = new RestRequest("3/Shutdown", Method.POST);
+
+            client.Execute(request);
+        }
+
         private static void ParseExcludeFields(string[] excludeFields, RestRequest request)
         {
             if (excludeFields != null)
@@ -200,6 +207,13 @@ namespace Brainchild.H2O
 
                 request.AddParameter("_exclude_fields", sb.ToString());
             }
+        }
+
+        public ParseSetupV3 ParseSetup(string sourceFrame, byte separator, bool singleQuotes, int checkHeader, string[] excludeFields)
+        {
+            var result = new ParseSetupV3();
+
+            return result;
         }
     }
 }
