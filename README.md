@@ -25,4 +25,4 @@ Enable a using H2O.ai's function from .NET Framework Clients.
 Naoya Ikeda
 
 ## License
-GNU LESSER GENERAL PUBLIC LICENSE Version 2.1,
+GNU LESSER GENERAL PUBLIC LICENSE Version 2.1
